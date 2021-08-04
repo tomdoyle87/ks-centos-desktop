@@ -9,6 +9,6 @@ label linux<BR>
 &nbsp;&nbsp;menu label ^Install \*Rocky Linux 8\* or \*Centos Linux 8\*<BR>
 &nbsp;&nbsp;menu default<BR>
 &nbsp;&nbsp;kernel vmlinuz<BR>
-&nbsp;&nbsp;append initrd=initrd.img inst.stage2=hd:LABEL=\*ISO Label\* inst.ks=cdrom:/dev/cdrom:/\*ks.cfg\* or \*rocky-ks.cfg\*
+&nbsp;&nbsp;append initrd=initrd.img inst.stage2=hd:LABEL=\*ISO Label\* inst.ks=cdrom:/dev/cdrom:/\*centos8-ks.cfg\* or \*rocky-ks.cfg\*
 
 Please enjoy any thoughts/issues are welcome. 
