@@ -31,7 +31,7 @@ sudo mkisofs -o ./Centos8-stream-ks.iso -b isolinux/isolinux.bin -c isolinux/boo
 <BR>
 sudo chown $USER:$USER Centos8-stream-ks.iso<BR>
 <BR>
-*Essentially the same for Centos 8 (non-stream) just replace the wget url with a download for am centos8 iso and update the mount command.*
+*Essentially the same for Centos 8 (non-stream) just replace the wget url with a download for an centos8 iso and update the mount command.*
 
 ### Rocky8:
   
