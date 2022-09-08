@@ -38,12 +38,12 @@ sudo chown $USER:$USER Centos8-stream-ks.iso<BR>
 cd ~<BR> 
 git clone https://github.com/tomdoyle87/ks-centos-desktop.git<BR>
 cd ks-centos-desktop<BR>
-wget https://download.rockylinux.org/pub/rocky/8/isos/x86_64/Rocky-8.4-x86_64-boot.iso<BR>
+wget https://download.rockylinux.org/pub/rocky/8/isos/x86_64/Rocky-8.6-x86_64-boot.iso<BR>
 mkdir Rocky8<BR>
-sudo mount -o loop Rocky-8.4-x86_64-boot.iso Rocky8/<BR>
+sudo mount -o loop Rocky-8.6-x86_64-boot.iso Rocky8/<BR>
 mkdir Rocky8.new<BR>
 sudo rsync -av Rocky8/ Rocky8.new/<BR>
-sudo cp rocky-ks.cfg Rocky8.new/<BR>
+sudo cp rocky86-ks.cfg Rocky8.new/<BR>
 cd Rocky8.new/<BR>
 sudo vi isolinux/isolinux.cfg
 
@@ -53,9 +53,9 @@ sudo vi isolinux/isolinux.cfg
       menu label ^Install Rocky Linux 8
       menu default 
       kernel vmlinuz
-      append initrd=initrd.img inst.stage2=hd:LABEL=CentOS-Stream-8-x86_64-dvd inst.ks=cdrom:/dev/cdrom:/rocky-ks.cfg
+      append initrd=initrd.img inst.repo=cdrom ks=cdrom:/rocky86-ks.cfg quiet
  
-sudo mkisofs -o ./Rocky8-ks.iso -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -J -l -r -T -v -V "Rocky-8-4-x86_64-dvd" .<BR>
+sudo mkisofs -o ./Rocky8-ks.iso -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -J -R -V "Rocky-8-6-x86_64-boot" .<BR>
 <BR>
 sudo chown $USER:$USER Rocky8-ks.iso
 
@@ -63,7 +63,7 @@ sudo chown $USER:$USER Rocky8-ks.iso
 Once you have copied the iso to a safe place for use, you can safely remove as follows:<BR>
 <BR>
 cd ~/ks-centos-desktop/<BR>
-sudo umount Rocky8/ **or** sudo umount Centos8<BR>
+sudo umount Rocky8/ **or** sudo umount Centos8/<BR>
 cd ..<BR>
 sudo rm -r ks-centos-desktop/<BR>
 <BR>
