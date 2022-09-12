@@ -59,11 +59,37 @@ sudo mkisofs -o ./Rocky8-ks.iso -b isolinux/isolinux.bin -c isolinux/boot.cat -n
 <BR>
 sudo chown $USER:$USER Rocky8-ks.iso
 
+### Rocky9:
+  
+cd ~<BR> 
+git clone https://github.com/tomdoyle87/ks-centos-desktop.git<BR>
+cd ks-centos-desktop<BR>
+wget https://download.rockylinux.org/pub/rocky/9/isos/x86_64/Rocky-9.0-x86_64-boot.iso<BR>
+mkdir Rocky9<BR>
+sudo mount -o loop Rocky-8.6-x86_64-boot.iso Rocky9/<BR>
+mkdir Rocky9.new<BR>
+sudo rsync -av Rocky9/ Rocky9.new/<BR>
+sudo cp rocky9-ks.cfg Rocky9.new/<BR>
+cd Rocky8.new/<BR>
+sudo vi isolinux/isolinux.cfg
+
+**Update label linux as follows:**
+
+    label linux
+      menu label ^Install Rocky Linux 8
+      menu default 
+      kernel vmlinuz
+      append initrd=initrd.img inst.repo=cdrom inst.ks=cdrom:/rocky9-ks.cfg quiet
+ 
+sudo mkisofs -o ./Rocky9-ks.iso -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -J -R -V "Rocky-9.0-x86_64-boot" .<BR>
+<BR>
+sudo chown $USER:$USER Rocky9-ks.iso
+
 ### Removal
 Once you have copied the iso to a safe place for use, you can safely remove as follows:<BR>
 <BR>
 cd ~/ks-centos-desktop/<BR>
-sudo umount Rocky8/ **or** sudo umount Centos8/<BR>
+sudo umount Rocky8/ **or** sudo umount Rocky9 **or** sudo umount Centos8/<BR>
 cd ..<BR>
 sudo rm -r ks-centos-desktop/<BR>
 <BR>
