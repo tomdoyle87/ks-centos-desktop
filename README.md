@@ -66,11 +66,11 @@ git clone https://github.com/tomdoyle87/ks-centos-desktop.git<BR>
 cd ks-centos-desktop<BR>
 wget https://download.rockylinux.org/pub/rocky/9/isos/x86_64/Rocky-9.0-x86_64-boot.iso<BR>
 mkdir Rocky9<BR>
-sudo mount -o loop Rocky-8.6-x86_64-boot.iso Rocky9/<BR>
+sudo mount -o loop Rocky-9.0-x86_64-boot.iso Rocky9/<BR>
 mkdir Rocky9.new<BR>
 sudo rsync -av Rocky9/ Rocky9.new/<BR>
 sudo cp rocky9-ks.cfg Rocky9.new/<BR>
-cd Rocky8.new/<BR>
+cd Rocky9.new/<BR>
 sudo vi isolinux/isolinux.cfg
 
 **Update label linux as follows:**
