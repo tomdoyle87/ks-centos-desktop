@@ -53,7 +53,7 @@ sudo vi isolinux/isolinux.cfg
       menu label ^Install Rocky Linux 8
       menu default 
       kernel vmlinuz
-      append initrd=initrd.img inst.repo=cdrom ks=cdrom:/rocky86-ks.cfg quiet
+      append initrd=initrd.img inst.repo=cdrom inst.ks=cdrom:/rocky86-ks.cfg quiet
  
 sudo mkisofs -o ./Rocky8-ks.iso -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -J -R -V "Rocky-8-6-x86_64-boot" .<BR>
 <BR>
