@@ -43,7 +43,8 @@ mkdir Rocky8<BR>
 sudo mount -o loop Rocky-8.6-x86_64-boot.iso Rocky8/<BR>
 mkdir Rocky8.new<BR>
 sudo rsync -av Rocky8/ Rocky8.new/<BR>
-sudo cp rocky86-ks.cfg Rocky8.new/<BR>
+sudo cp rocky86-ks.cfg firstboot.service Rocky8.new/<BR>
+sudo cp tlp-8.sh Rocky8.new/tlp.sh<BR>
 cd Rocky8.new/<BR>
 sudo vi isolinux/isolinux.cfg
 
@@ -69,14 +70,15 @@ mkdir Rocky9<BR>
 sudo mount -o loop Rocky-9.0-x86_64-boot.iso Rocky9/<BR>
 mkdir Rocky9.new<BR>
 sudo rsync -av Rocky9/ Rocky9.new/<BR>
-sudo cp rocky9-ks.cfg Rocky9.new/<BR>
+sudo cp rocky9-ks.cfg firstboot.service Rocky9.new/<BR>
+sudo cp tlp-9.sh Rocky9.new/tlp.sh<BR>
 cd Rocky9.new/<BR>
 sudo vi isolinux/isolinux.cfg
 
 **Update label linux as follows:**
 
     label linux
-      menu label ^Install Rocky Linux 8
+      menu label ^Install Rocky Linux 9
       menu default 
       kernel vmlinuz
       append initrd=initrd.img inst.repo=cdrom inst.ks=cdrom:/rocky9-ks.cfg quiet
