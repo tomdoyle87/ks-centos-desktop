@@ -30,7 +30,7 @@ sudo vi isolinux/isolinux.cfg
       kernel vmlinuz
       append initrd=initrd.img inst.repo=cdrom inst.ks=cdrom:/rocky-ks.cfg quiet
  
-sudo mkisofs -o ./Rocky-ks.iso -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -J -R -V "Rocky-x86_64-boot" .<BR>
+sudo mkisofs -o ./Rocky-ks.iso -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -J -R -V "Rocky-9-0-x86_64-boot" .<BR>
 <BR>
 sudo chown $USER:$USER Rocky-ks.iso
 
