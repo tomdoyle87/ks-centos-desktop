@@ -49,7 +49,7 @@ https://raw.githubusercontent.com/tomdoyle87/ks-centos-desktop/main/autoinstall-
 <BR>
 To run issue:<BR>
 <BR>
-sudo su
+sudo su<BR>
 . autoinstall-workstation.sh
 
 <BR>
