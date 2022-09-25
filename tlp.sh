@@ -15,7 +15,7 @@ case "$VAR1" in
                 systemctl start tlp
                 #setup monthly check for tlp updates
                 set -f
-                cat <<EOF >>/lib/systemd/system/tlp-update.service
+                cat <<EOF >/lib/systemd/system/tlp-update.service
 [Unit]
 Description=Check For TLP updates
 After=network.target
@@ -24,7 +24,7 @@ ExecStart=dnf --disablerepo=* --enablerepo=epel update -y
 [Install]
 WantedBy=multi-user.target
 EOF
-		cat <<EOF >>/lib/systemd/system/tlp-update.timer
+		cat <<EOF >/lib/systemd/system/tlp-update.timer
 [Unit]
 Description=Timer for Check For TLP updates
 [Timer]
