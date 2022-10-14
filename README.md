@@ -24,10 +24,12 @@ Download Boot iso for the distro of your choice this will need to placed the ks-
 	    -map firstboot.service firstboot.service \
 	    -map tlp.sh tlp.sh \
 	    -map isolinux.cfg isolinux/isolinux.cfg \
-	    -map grub.cfg /EFI/BOOT/grub.cfg
+	    -map grub.cfg /EFI/BOOT/grub.cfg \ 
+	    -map firewalld-workstation.conf firewalld-workstation.conf \     
+	    -map Saincheaptha.xml Saincheaptha.xml 
 
     isohybrid --uefi Saincheaptha.iso 
-    implantisomd5 --supported-iso Saincheaptha.iso 
+    implantisomd5 --supported-iso Saincheaptha.iso --force
 
 ### DVD ISO
 
@@ -46,10 +48,6 @@ You need to create a boot iso, using the instuctions above. Then please download
     	    -compliance joliet_long_names \
     	    -volid Saincheaptha-x86_64-boot \
     	    -map dvd-ks.cfg ks.cfg \
-    	    -map firstboot.service firstboot.service \
-    	    -map tlp.sh tlp.sh \
-    	    -map isolinux.cfg isolinux/isolinux.cfg \
-    	    -map grub.cfg /EFI/BOOT/grub.cfg \
     	    -map dvd/AppStream/ /AppStream/ \
     	    -map dvd/BaseOS/ /BaseOS
     
