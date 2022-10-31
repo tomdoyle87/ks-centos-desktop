@@ -4,6 +4,6 @@ Wants=network-online.target
 After=network-online.target
 [Service]
 Type=simple
-ExecStart=/usr/local/bin/tlp.sh
+ExecStart=/usr/local/bin/firstboot.sh
 [Install]
 WantedBy=multi-user.target
