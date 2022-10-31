@@ -4,33 +4,33 @@ case $OS in
 
   *"Rocky Linux 8.6"*)
 	dnf config-manager --set-enabled powertools
-		dnf install epel-release
+		dnf install -y epel-release
     ;;
 
   *"Rocky Linux 9.0"*)
 	dnf config-manager --set-enabled crb
-		dnf install epel-release
+		dnf install -y epel-release
 		
     ;;
 
   *"CentOS Stream 8"*)
 	dnf config-manager --set-enabled powertools
-		dnf install epel-release epel-next-release
+		dnf install -y pel-release epel-next-release
     ;;
 
   *"CentOS Stream 9"*)
 	dnf config-manager --set-enabled powertools
-		dnf install epel-release epel-next-release
+		dnf install -y epel-release epel-next-release
     ;;
 
   *"AlmaLinux 8.6"*)
 	dnf config-manager --set-enabled powertools
-		dnf install epel-release
+		dnf install -y epel-release
     ;;
 
   *"AlmaLinux 9.0"*)
 	dnf config-manager --set-enabled crb
-		dnf install epel-release
+		dnf install -y epel-release
     ;;
 
   *)
